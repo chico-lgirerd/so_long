@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/05 16:46:34 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:47:55 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	name_checker(char *str)
 	len = ft_strlen(str);
 	if (len < 4)
 		return (1);
-	if (str[len] != 'r' || str[len - 1] != 'e'
-			|| str[len - 2] != 'b' || str[len - 3] != '.')
+	if (ft_strncmp(&str[len - 4], ".ber", 4) != 0)
 		return (1);
 	return (0);
 }
