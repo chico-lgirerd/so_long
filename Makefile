@@ -6,21 +6,22 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/05 13:48:37 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/05 16:14:08 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = so_long
-CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
-LIBFLAGS = -lm
-LIBFT	= ./libft/libft.a
+NAME    	= so_long
+CC      	= cc
+CFLAGS  	= -Wall -Wextra -Werror
+LIBFLAGS 	= -lm
+MLXFLAGS 	= -I/usr/include -Imlx
+LINKFLAGS 	= -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+LIBFT		= ./libft/libft.a
 
 ############################# SOURCES #############################
 
 SRCS_DIR = srcs/
-SRCS    = $(addprefix $(SRCS_DIR), \
-			)
+SRCS    = $(addprefix $(SRCS_DIR), main.c)
 
 ############################# DIRECTORIES ##############################
 
@@ -36,12 +37,11 @@ $(LIBFT):
 	make -C ./libft
 
 $(NAME): $(OBJS) Makefile
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(LIBFLAGS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(LINKFLAGS)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
-#	@mkdir -p $(OBJS_DIR)/operations
-	$(CC) $(CFLAGS) -MMD -c $< -o $@
+	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(MLXFLAGS)
 
 clean:
 	make clean -C libft
