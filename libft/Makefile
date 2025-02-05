@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 13:41:01 by lgirerd           #+#    #+#              #
-#    Updated: 2025/01/18 17:37:40 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/05 15:29:20 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ CONV_DIR = conversion/
 CONV_SRCS = ft_atoi.c \
 			ft_itoa.c \
 			ft_tolower.c \
-			ft_toupper.c \
-			ft_atol.c
+			ft_toupper.c
 
 FD_DIR = file_desc/
 FD_SRCS =   ft_putchar_fd.c \
@@ -80,6 +79,10 @@ PRINTF_SRCS = 	ft_printf.c \
 				ft_printhex.c \
 				ft_printptr.c 
 
+GNL_DIR = gnl/
+GNL_SRCS = 		get_next_line.c \
+				get_next_line_utils.c
+
 ############################# DIRECTORIES ##############################
 
 SRCS_DIR = srcs/
@@ -89,7 +92,8 @@ SRCS =	$(addprefix $(SRCS_DIR)$(CONV_DIR), $(CONV_SRCS)) \
 		$(addprefix $(SRCS_DIR)$(LINKLIST_DIR), $(LINKLIST_SRCS)) \
 		$(addprefix $(SRCS_DIR)$(MEMORY_DIR), $(MEMORY_SRCS)) \
 		$(addprefix $(SRCS_DIR)$(STRING_DIR), $(STRING_SRCS)) \
-		$(addprefix $(SRCS_DIR)$(PRINTF_DIR), $(PRINTF_SRCS))
+		$(addprefix $(SRCS_DIR)$(PRINTF_DIR), $(PRINTF_SRCS)) \
+		$(addprefix $(SRCS_DIR)$(GNL_DIR), $(GNL_SRCS))
 
 OBJS_DIR = .objs/
 
@@ -111,6 +115,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	@mkdir -p $(OBJS_DIR)$(MEMORY_DIR)
 	@mkdir -p $(OBJS_DIR)$(STRING_DIR)
 	@mkdir -p $(OBJS_DIR)$(PRINTF_DIR)
+	@mkdir -p $(OBJS_DIR)$(GNL_DIR)
 	@echo "Compiling $<"; $(CC) $(CFLAGS) -MMD -c $< -o $@
 
 clean :

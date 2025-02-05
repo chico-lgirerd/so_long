@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 16:15:51 by lgirerd           #+#    #+#             */
-/*   Updated: 2024/12/12 16:26:51 by lgirerd          ###   ########lyon.fr   */
+/*   Created: 2025/02/05 14:27:59 by lgirerd           #+#    #+#             */
+/*   Updated: 2025/02/05 14:28:49 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
-#include <stdlib.h>
+#include "mlx/mlx.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	main(int argc, char **argv)
 {
-	unsigned int	i;
-	size_t			slen;
-	char			*res;
-
-	slen = ft_strlen(s);
-	res = malloc(slen + 1 * sizeof(char));
-	if (res == NULL || f == NULL)
-		return ((void *)(0));
-	i = 0;
-	while (s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+	 
 }

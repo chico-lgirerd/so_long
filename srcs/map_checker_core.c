@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   map_checker_core.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 16:15:51 by lgirerd           #+#    #+#             */
-/*   Updated: 2024/12/12 16:26:51 by lgirerd          ###   ########lyon.fr   */
+/*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
+/*   Updated: 2025/02/05 15:01:27 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
-#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	char_checker(int fd)
 {
-	unsigned int	i;
-	size_t			slen;
-	char			*res;
+	
+}
 
-	slen = ft_strlen(s);
-	res = malloc(slen + 1 * sizeof(char));
-	if (res == NULL || f == NULL)
-		return ((void *)(0));
-	i = 0;
-	while (s[i])
+int	map_checking(char *path)
+{
+	int	fd;
+	
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (1);
+	if (char_checker(fd))
 	{
-		res[i] = f(i, s[i]);
-		i++;
+		
 	}
-	res[i] = '\0';
-	return (res);
 }
