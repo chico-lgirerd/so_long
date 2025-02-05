@@ -1,0 +1,8 @@
+# Objs
+.objs/
+
+# Subjects
+*.pdf
+
+# Library
+libft.a
