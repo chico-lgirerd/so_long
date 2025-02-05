@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/05 16:42:55 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:46:34 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	name_checker(char *str)
 	int	len;
 
 	len = ft_strlen(str);
-	if (len < 5)
+	if (len < 4)
 		return (1);
 	if (str[len] != 'r' || str[len - 1] != 'e'
 			|| str[len - 2] != 'b' || str[len - 3] != '.')
