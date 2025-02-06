@@ -6,11 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/05 16:47:55 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 12:58:12 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/include/libft.h"
+#include "../include/structs.h"
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -26,13 +27,12 @@ int	name_checker(char *str)
 	return (0);
 }
 
-int	map_checking_core(char *path)
+int	map_core(char *map_path)
 {
-	int	fd;
+	int		fd;
+	char	**map;
 	
-	if (name_checker(path))
+	if (name_checker(map_path))
 		return (1);
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		return (1);
+	
 }
