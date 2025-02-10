@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/05 16:14:08 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/10 16:15:28 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT		= ./libft/libft.a
 ############################# SOURCES #############################
 
 SRCS_DIR = srcs/
-SRCS    = $(addprefix $(SRCS_DIR), main.c)
+SRCS    = $(addprefix $(SRCS_DIR), map_checker_core.c)
 
 ############################# DIRECTORIES ##############################
 
