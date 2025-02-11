@@ -6,14 +6,14 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/10 17:28:30 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/11 15:42:28 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/include/libft.h"
 #include "../include/structs.h"
 #include <fcntl.h>
-#include <stdlib.h>
+#include <stdlib.h> 
 #include <unistd.h>
 
 int	name_checker(char *str)
@@ -41,20 +41,33 @@ int	map_core(char *map_path)
 	if (fd < 0)
 		return (1);
 	i = 0;
+	map = malloc(sizeof(char *) * 5);
+	map[4] = NULL;
 	while ((line = get_next_line(fd)) != NULL)
-	{
-		map[i] = ft_strdup(line);
+	{ 
+		ft_printf("GNL : %s", line);
+		map[i] = malloc(ft_strlen(line));
+		ft_strlcpy(map[i], line, ft_strlen(line));
 		free(line);
-		if (!map[i])
-			return (1);
+		//map[i] = line2;
+		// if (!map[i])
+		// 	return (1);
 		i++;
 	}
 	int j = 0;
-	while (map[j])
+	ft_printf("== MAP ==\n");
+	while (j < 5)
 	{
-		ft_printf(map[0]);
+		ft_printf("%s\n", map[j]);
 		j++;
 	}
+	j = 0;
+	while (j < 5)
+	{
+		free(map[j]);
+		j++;
+	}
+	free(map);
 	close(fd);
 	return (0);
 }
