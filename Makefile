@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/11 14:40:32 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/12 11:24:50 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,13 @@ LIBFLAGS 	= -lm
 MLXFLAGS 	= -I/usr/include -Imlx
 LINKFLAGS 	= -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 LIBFT		= ./libft/libft.a
+INC			= -I$(LIBFT_DIR) -I$(HDR_DIR) -I$(MLX_DIR)
+HDR			= structs.h
+HDR_DIR		= include
+LIBFT_DIR	= libft/include
+LIBFT_HDR	= libft.h
+MLX_DIR		= mlx
+MLX_HDR		= mlx.h
 
 ############################# SOURCES #############################
 
@@ -39,9 +46,9 @@ $(LIBFT):
 $(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(LINKFLAGS)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HDR_DIR)/$(HDR) $(LIBFT_DIR)/$(LIBFT_HDR) $(MLX_DIR)/$(MLX_HDR)
 	@mkdir -p $(OBJS_DIR)
-	$(CC) $(CFLAGS) -MMD -c $< -o $@ $(MLXFLAGS)
+	$(CC) $(CFLAGS) $(INC) -MMD -c $< -o $@ $(MLXFLAGS)
 
 clean:
 	make clean -C libft
