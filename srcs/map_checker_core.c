@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/12 13:24:40 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/18 14:31:46 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**get_map(int fd, int lines)
 		exit(1);
 	while (line != NULL)
 	{
-		map[i] = malloc(ft_strlen(line) + 1); 
+		map[i] = malloc(ft_strlen(line) + 1);
 		if (!map[i])
 		{
 			free(line);
@@ -83,7 +83,7 @@ char	**get_map(int fd, int lines)
 	return (map);
 }
 
-int	map_core(t_map *game, char *map_path)
+int	map_core(t_data *game, char *map_path)
 {
 	int		fd;
 	int		i;
@@ -95,7 +95,6 @@ int	map_core(t_map *game, char *map_path)
 	if (fd < 0)
 		return (1);
 	i = line_count(fd);
-	close(fd);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		return (1);
@@ -108,8 +107,6 @@ int	map_core(t_map *game, char *map_path)
 
 int	main(void)
 {
-	t_map	*game;
-	
 	game = NULL;
 	if (map_core(game, "map.ber"))
 		return (1);
