@@ -6,11 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/18 14:31:46 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/18 15:12:08 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "utils.h"
 #include "structs.h"
 #include <fcntl.h>
 #include <stdlib.h> 
@@ -83,32 +84,35 @@ char	**get_map(int fd, int lines)
 	return (map);
 }
 
-int	map_core(t_data *game, char *map_path)
+void	map_core(t_data *game, char *map_path)
 {
 	int		fd;
 	int		i;
 	char	**map;
 
 	if (name_checker(map_path))
-		return (1);
+		ft_error("Incorrect map format. Usage : ./so_long map.ber");
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		return (1);
+		ft_error("Error while opening file");
 	i = line_count(fd);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		return (1);
+		ft_error("Error while opening file");
 	map = get_map(fd, i);
 	game->map = map;
 	free(map);
 	close(fd);
-	return (0);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	game = NULL;
-	if (map_core(game, "map.ber"))
-		return (1);
+	t_data	*game;
+	
+	if (ac == 2)
+	{
+		game = NULL;
+		map_core(game, av[1]);
+	}
 	return (0);
 }

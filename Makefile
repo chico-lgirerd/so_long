@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/12 11:24:50 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/18 16:15:36 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ MLXFLAGS 	= -I/usr/include -Imlx
 LINKFLAGS 	= -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 LIBFT		= ./libft/libft.a
 INC			= -I$(LIBFT_DIR) -I$(HDR_DIR) -I$(MLX_DIR)
-HDR			= structs.h
+HDR			= structs.h utils.h
 HDR_DIR		= include
 LIBFT_DIR	= libft/include
 LIBFT_HDR	= libft.h
@@ -27,8 +27,9 @@ MLX_HDR		= mlx.h
 
 ############################# SOURCES #############################
 
-SRCS_DIR = srcs/
-SRCS    = $(addprefix $(SRCS_DIR), map_checker_core.c)
+SRCS_DIR 	= srcs/
+SRCS    	= $(SRCS_DIR)map_checker_core.c \
+			  $(SRCS_DIR)utils.c
 
 ############################# DIRECTORIES ##############################
 
@@ -38,7 +39,7 @@ DEPS := $(OBJS:.o=.d)
 
 ############################# RULES ##############################
 
-all: $(LIBFT) $(NAME)
+all:$(LIBFT) $(NAME)
 
 $(LIBFT):
 	make -C ./libft
@@ -46,8 +47,8 @@ $(LIBFT):
 $(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(LINKFLAGS)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HDR_DIR)/$(HDR) $(LIBFT_DIR)/$(LIBFT_HDR) $(MLX_DIR)/$(MLX_HDR)
-	@mkdir -p $(OBJS_DIR)
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(addprefix $(HDR_DIR)/, $(HDR)) $(LIBFT_DIR)/$(LIBFT_HDR) $(MLX_DIR)/$(MLX_HDR)
+	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INC) -MMD -c $< -o $@ $(MLXFLAGS)
 
 clean:
