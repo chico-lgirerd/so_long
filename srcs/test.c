@@ -10,8 +10,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		init_data(data, av[1]);
-		free_map(data->map);
-		free(data);
+		free_map(data);
 	}
 	return (0);
 }
