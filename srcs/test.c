@@ -10,6 +10,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		init_data(data, av[1]);
+		check_walls(data);
 		free_map(data);
 	}
 	return (0);

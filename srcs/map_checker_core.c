@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/19 14:49:32 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 16:44:33 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,33 @@ char	**map_core(char *map_path)
 	return (map);
 }
 
-// int	main(int ac, char **av)
-// {
-// 	// t_data	*game;
-	
-// 	if (ac == 2)
-// 	{
-// 		// game = NULL;
-// 		// map_core(game, av[1]);
-// 		map_core(av[1]);
-// 	}
-// 	return (0);
-// }
+void	check_walls(t_data *data)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (j < data->width - 1)
+	{
+		if (data->map[0][j] != '1')
+		{
+			ft_printf("Wrong char : %c\n", data->map[0][j]);
+			ft_map_error(data, "Incorrect walls on first line");
+		}
+		j++;
+	}
+	i = 0;
+	while (i < data->height - 1)
+	{
+		if (data->map[i][0] != '1' || data->map[i][data->width - 2] != '1')
+			ft_map_error(data, "Incorrect walls on columns");
+		i++;
+	}
+	j = 0;
+	while (j < data->width - 1)
+	{
+		if (data->map[data->height - 1][j] != '1')
+			ft_map_error(data, "Incorrect walls on last line");
+		j++;	
+	}
+}
