@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/18 16:15:36 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/19 14:54:00 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,10 @@ MLX_HDR		= mlx.h
 
 SRCS_DIR 	= srcs/
 SRCS    	= $(SRCS_DIR)map_checker_core.c \
-			  $(SRCS_DIR)utils.c
+			  $(SRCS_DIR)utils.c \
+			  $(SRCS_DIR)init.c \
+			  $(SRCS_DIR)map_utils.c \
+			  $(SRCS_DIR)test.c
 
 ############################# DIRECTORIES ##############################
 

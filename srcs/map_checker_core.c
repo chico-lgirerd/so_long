@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/18 15:12:08 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 14:49:32 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**get_map(int fd, int lines)
 	char	*line;
 
 	map = malloc(sizeof(char *) * (lines + 1));
-	map[lines + 1] = NULL;
+	map[lines] = NULL;
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
@@ -84,7 +84,7 @@ char	**get_map(int fd, int lines)
 	return (map);
 }
 
-void	map_core(t_data *game, char *map_path)
+char	**map_core(char *map_path)
 {
 	int		fd;
 	int		i;
@@ -100,19 +100,19 @@ void	map_core(t_data *game, char *map_path)
 	if (fd < 0)
 		ft_error("Error while opening file");
 	map = get_map(fd, i);
-	game->map = map;
-	free(map);
 	close(fd);
+	return (map);
 }
 
-int	main(int ac, char **av)
-{
-	t_data	*game;
+// int	main(int ac, char **av)
+// {
+// 	// t_data	*game;
 	
-	if (ac == 2)
-	{
-		game = NULL;
-		map_core(game, av[1]);
-	}
-	return (0);
-}
+// 	if (ac == 2)
+// 	{
+// 		// game = NULL;
+// 		// map_core(game, av[1]);
+// 		map_core(av[1]);
+// 	}
+// 	return (0);
+// }

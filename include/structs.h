@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:15:36 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/18 15:02:55 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 14:55:13 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ typedef struct s_data
 	t_content	content;
 	t_image		img;
 }	t_data;
+
+void	init_data(t_data *data, char *map_path);
 
 #endif
