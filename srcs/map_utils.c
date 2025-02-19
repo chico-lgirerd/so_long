@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/19 15:51:18 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 18:01:54 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ int	get_height(t_data *data)
 	int	i;
 	
 	i = 0;
-	while (data->map[i] != NULL)
+	while (data->map[i] != (void *)(0))
+	{
+		ft_printf(data->map[i]);
 		i++;
+	}
 	return (i);
 }
 
-int	get_width(t_data *data)
+int	get_width(t_data *data, int height)
 {
 	size_t	len_1;
 	int		i;
@@ -37,6 +40,10 @@ int	get_width(t_data *data)
 			ft_map_error(data, "Incorrect map. Please check all lines are the same width");
 		i++;
 	}
+	ft_printf("Height : %d\n", height);
+	ft_printf("Width : %d\n", len_1);
+	if ((size_t)height >= len_1)
+		ft_map_error(data, "Map is not rectangular");
 	return (len_1);
 }
 
