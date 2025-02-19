@@ -6,14 +6,14 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:42:56 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/19 16:23:00 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 17:36:05 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
 
-#include "structs.h"
+# include "structs.h"
 
 char	**map_core(char *map_path);
 int		get_height(t_data *data);

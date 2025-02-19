@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/19 14:54:00 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/19 17:54:01 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,10 @@ fclean: clean
 
 re: fclean all
 
+norm:
+	@norminette srcs | grep Error || true
+	@norminette include | grep Error || true
+
 -include $(DEPS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norm

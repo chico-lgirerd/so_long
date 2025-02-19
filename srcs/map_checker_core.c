@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/19 16:44:33 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 17:29:13 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,7 @@ void	check_walls(t_data *data)
 	while (j < data->width - 1)
 	{
 		if (data->map[0][j] != '1')
-		{
-			ft_printf("Wrong char : %c\n", data->map[0][j]);
 			ft_map_error(data, "Incorrect walls on first line");
-		}
 		j++;
 	}
 	i = 0;
