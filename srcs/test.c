@@ -13,5 +13,7 @@ int	main(int ac, char **av)
 		check_walls(data);
 		free_map(data);
 	}
+	else
+		free(data);
 	return (0);
 }

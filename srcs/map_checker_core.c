@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/20 12:14:25 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 12:51:35 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**get_map(t_data *data, int fd, int lines)
 
 	map = malloc(sizeof(char *) * (lines + 1));
 	if (!map)
-		ft_error("Failed to allocate memory for map");
+		ft_error("Failed to allocate memory : map");
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
@@ -73,7 +73,7 @@ char	**get_map(t_data *data, int fd, int lines)
 	{
 		map[i] = malloc(ft_strlen(line) + 1);
 		if (!map[i])
-			ft_gnl_error(data, line, "Failed to allocate memory for map");
+			ft_gnl_error(data, line, "Failed to allocate memory : map");
 		ft_strlcpy(map[i], line, ft_strlen(line) + 1);
 		free(line);
 		i++;
@@ -112,21 +112,25 @@ void	check_walls(t_data *data)
 	while (j < data->width - 1)
 	{
 		if (data->map[0][j] != '1')
-			ft_map_error(data, "Incorrect walls on first line");
+			ft_map_error(data, "Incorrect walls : first line");
 		j++;
 	}
 	i = 0;
 	while (i < data->height - 1)
 	{
 		if (data->map[i][0] != '1' || data->map[i][data->width - 2] != '1')
-			ft_map_error(data, "Incorrect walls on columns");
+		{
+			ft_printf("data->map[%d][0] : %c\n", i, data->map[i][0]);
+			ft_printf("data->map[%d][data->width - 2] : %c\n", i, data->map[i][data->width - 1]);
+			ft_map_error(data, "Incorrect walls : columns");
+		}
 		i++;
 	}
 	j = 0;
 	while (j < data->width - 1)
 	{
 		if (data->map[data->height - 1][j] != '1')
-			ft_map_error(data, "Incorrect walls on last line");
-		j++;	
+			ft_map_error(data, "Incorrect walls : last line");
+		j++;
 	}
 }
