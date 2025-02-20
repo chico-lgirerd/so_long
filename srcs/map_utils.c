@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/20 14:29:28 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 14:37:10 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,6 @@ int	get_width(t_data *data, int height)
 	return (len_1);
 }
 
-void	free_map(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (data->map[i] != NULL)
-	{
-		free(data->map[i]);
-		i++;
-	}
-	free(data->map);
-	free(data);
-}
-
 int	get_exits(t_data *data)
 {
 	int	i;
@@ -80,7 +66,7 @@ int	get_exits(t_data *data)
 	return (count_e);
 }
 
-int	get_starts(t_data *data)
+int	get_start(t_data *data)
 {
 	int	i;
 	int	j;
@@ -102,4 +88,28 @@ int	get_starts(t_data *data)
 	if (count_p == 0 || count_p > 1)
 		ft_map_error(data, "Incorrect starting point(s)");
 	return (count_p);
+}
+
+int	get_colls(t_data *data)
+{
+	int	i;
+	int	j;
+	int	count_c;
+	
+	i = 0;
+	count_c = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j] != '\n')
+		{
+			if (data->map[i][j] == 'C')
+				count_c++;
+			j++;
+		}
+		i++;
+	}
+	if (count_c == 0)
+		ft_map_error(data, "Too few collectibles");
+	return (count_c);
 }
