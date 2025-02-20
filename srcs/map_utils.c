@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/20 13:01:34 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 14:29:28 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	get_exits(t_data *data)
 	int	i;
 	int	j;
 	int	count_e;
-	
+
 	i = 0;
 	count_e = 0;
 	while (data->map[i])
@@ -76,6 +76,30 @@ int	get_exits(t_data *data)
 		i++;
 	}
 	if (count_e == 0 || count_e > 1)
-		ft_map_error(data, "Incorrect map : must have one exit");
+		ft_map_error(data, "Incorrect exit(s)");
 	return (count_e);
+}
+
+int	get_starts(t_data *data)
+{
+	int	i;
+	int	j;
+	int	count_p;
+
+	i = 0;
+	count_p = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j] != '\n')
+		{
+			if (data->map[i][j] == 'P')
+				count_p++;
+			j++;
+		}
+		i++;
+	}
+	if (count_p == 0 || count_p > 1)
+		ft_map_error(data, "Incorrect starting point(s)");
+	return (count_p);
 }

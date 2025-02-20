@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/20 12:51:35 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 14:29:06 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,7 @@ void	check_walls(t_data *data)
 	while (i < data->height - 1)
 	{
 		if (data->map[i][0] != '1' || data->map[i][data->width - 2] != '1')
-		{
-			ft_printf("data->map[%d][0] : %c\n", i, data->map[i][0]);
-			ft_printf("data->map[%d][data->width - 2] : %c\n", i, data->map[i][data->width - 1]);
 			ft_map_error(data, "Incorrect walls : columns");
-		}
 		i++;
 	}
 	j = 0;
