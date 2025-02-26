@@ -6,16 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/20 14:29:06 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 21:20:38 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "utils.h"
-#include "structs.h"
-#include <fcntl.h>
-#include <stdlib.h> 
-#include <unistd.h>
+#include "so_long.h"
 
 #define BUF_SIZE 65536
 

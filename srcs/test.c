@@ -1,6 +1,4 @@
-#include "map.h"
-#include "structs.h"
-#include <stdlib.h>
+#include "so_long.h"
 
 int	main(int ac, char **av)
 {

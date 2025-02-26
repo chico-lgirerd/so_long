@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/26 14:27:22 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/26 21:22:07 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ MLXFLAGS 	= -I/usr/include -Imlx
 LINKFLAGS 	= -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 LIBFT		= ./libft/libft.a
 INC			= -I$(LIBFT_DIR) -I$(HDR_DIR) -I$(MLX_DIR)
-HDR			= structs.h utils.h
+HDR			= so_long.h
 HDR_DIR		= include
 LIBFT_DIR	= libft/include
 LIBFT_HDR	= libft.h

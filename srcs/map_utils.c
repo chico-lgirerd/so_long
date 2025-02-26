@@ -6,13 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 13:12:22 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 21:21:32 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "utils.h"
-#include <stdlib.h>
+#include "so_long.h"
 
 int	get_height(t_data *data)
 {

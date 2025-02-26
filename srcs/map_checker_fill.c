@@ -6,13 +6,11 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:36:30 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 19:08:20 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 21:21:29 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structs.h"
-#include "utils.h"
-#include <stdlib.h>
+#include "so_long.h"
 
 void	free_map(t_data *data)
 {

@@ -6,14 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:06:27 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:08:38 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 21:21:41 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "structs.h"
-#include "utils.h"
-#include <stdlib.h>
+#include "so_long.h"
 
 void	ft_error(char *msg)
 {

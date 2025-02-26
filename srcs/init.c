@@ -6,15 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 20:45:24 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 21:20:25 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "structs.h"
-#include "utils.h"
-#include "map.h"
+#include "so_long.h"
 #include "mlx.h"
-#include <stdlib.h>
 
 char	**init_map_copy(t_data *data)
 {

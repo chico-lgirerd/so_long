@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 12:15:36 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 17:12:37 by lgirerd          ###   ########lyon.fr   */
+/*   Created: 2025/02/26 21:16:52 by lgirerd           #+#    #+#             */
+/*   Updated: 2025/02/26 21:21:16 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h> 
 
 typedef struct s_player
 {
@@ -51,7 +55,23 @@ typedef struct s_data
 	t_image		img;
 }	t_data;
 
+void	ft_error(char *msg);
+void	ft_map_error(t_data *data, char *msg);
+void	ft_gnl_error(t_data *data, char *line, char *msg);
+void	ft_map_copy_error(t_data *data, char *msg);
+void	free_map(t_data *data);
+void	free_map_copy(t_data *data);
+void	ft_mlx_error(t_data *data, char *msg);
 void	init_data(t_data *data, char *map_path);
 void	init_player_pos(t_data *data);
+char	**map_core(t_data *data, char *map_path);
+int		get_height(t_data *data);
+int		get_width(t_data *data, int height);
+void	check_walls(t_data *data);
+void	free_map(t_data *data);
+int		get_exits(t_data *data);
+int		get_start(t_data *data);
+int		get_colls(t_data *data);
+void	is_map_valid(t_data *data);
 
-#endif
+#endif 
