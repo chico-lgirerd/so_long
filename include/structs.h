@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:15:36 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 12:45:19 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 13:55:44 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct s_player
 {
-	int	pos_x;
-	int	pos_y;
+	int	x;
+	int	y;
 }	t_player;
 
 typedef struct s_image
@@ -33,6 +33,8 @@ typedef struct s_content
 	int		count_p;
 	int		count_c;
 	int		count_e;
+	int		found_c;
+	int		found_e;
 }	t_content;
 
 typedef struct s_data
