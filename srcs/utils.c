@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:06:27 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 19:16:13 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 21:08:38 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,7 @@ void	ft_gnl_error(t_data *data, char *line, char *msg)
 
 void	ft_map_copy_error(t_data *data, char *msg)
 {
-	int	i;
-
-	i = 0;
-	while (data->map_copy[i] != NULL)
-	{
-		free(data->map_copy[i]);
-		i++;
-	}
-	free(data->map_copy);
+	free_map_copy(data);
 	ft_map_error(data, msg);
 }
 
