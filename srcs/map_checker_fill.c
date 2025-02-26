@@ -6,13 +6,27 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:36:30 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 17:28:52 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 19:08:20 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "utils.h"
 #include <stdlib.h>
+
+void	free_map(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->map[i] != NULL)
+	{
+		free(data->map[i]);
+		i++;
+	}
+	free(data->map);
+	free(data);
+}
 
 void	free_map_copy(t_data *data)
 {

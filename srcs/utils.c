@@ -6,27 +6,14 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:06:27 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 16:01:27 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 19:16:13 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "structs.h"
+#include "utils.h"
 #include <stdlib.h>
-
-void	free_map(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (data->map[i] != NULL)
-	{
-		free(data->map[i]);
-		i++;
-	}
-	free(data->map);
-	free(data);
-}
 
 void	ft_error(char *msg)
 {
@@ -57,5 +44,11 @@ void	ft_map_copy_error(t_data *data, char *msg)
 		i++;
 	}
 	free(data->map_copy);
+	ft_map_error(data, msg);
+}
+
+void	ft_mlx_error(t_data *data, char *msg)
+{
+	free(data->mlx_ptr);
 	ft_map_error(data, msg);
 }
