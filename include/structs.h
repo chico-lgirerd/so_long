@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:15:36 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 13:55:44 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 17:12:37 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ typedef struct s_data
 }	t_data;
 
 void	init_data(t_data *data, char *map_path);
+void	init_player_pos(t_data *data);
 
 #endif

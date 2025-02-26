@@ -6,14 +6,64 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 13:12:14 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 17:12:22 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structs.h"
 #include "utils.h"
 #include "map.h"
-#include <stddef.h>
+#include <stdlib.h>
+
+char	**init_map_copy(t_data *data)
+{
+	int		i;
+	int		j;
+	char	**map_copy;
+
+	map_copy = malloc(sizeof(char *) * (data->height + 1));
+	if (!map_copy)
+		ft_map_error(data, "Failed to allocate memory : map_copy");
+	i = 0;
+	while (i < data->height)
+	{
+		map_copy[i] = malloc(sizeof(char) * (data->width + 1));
+		if (!map_copy[i])
+			ft_map_copy_error(data, "Failed to allocate memory : map_copy[i]");
+		j = 0;
+		while (j < data->width - 1)
+		{
+			map_copy[i][j] = data->map[i][j];
+			j++;
+		}
+		i++;
+	}
+	map_copy[i] = NULL;
+	return (map_copy);
+}
+
+void	init_player_pos(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < data->height)
+	{
+		j = 0;
+		while (j < data->width)
+		{
+			if (data->map[i][j] == 'P')
+			{
+				data->pos.x = i;
+				data->pos.y = j;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 void	init_data(t_data *data, char *map_path)
 {
@@ -26,30 +76,5 @@ void	init_data(t_data *data, char *map_path)
 	data->content.count_e = get_exits(data);
 	data->content.count_p = get_start(data);
 	data->map_copy = init_map_copy(data);
-}
-
-char	**init_map_copy(t_data *data)
-{
-	int		i;
-	int		j;
-	char	**map_copy;
-
-	map_copy = malloc(sizeof(char *) * data->height);
-	if (!map_copy)
-		ft_map_error(data, "Failed to allocate memory : map_copy");
-	i = 0;
-	while (i < data->height)
-	{
-		map_copy[i] = malloc(sizeof(char) * data->width);
-		if (!map_copy[i])
-			ft_map_copy_error(data, "Failed to allocate memory : map_copy[i]");
-		j = 0;
-		while (j < data->width)
-		{
-			map_copy[i][j] = data->map[i][j];
-			j++;
-		}
-		i++;
-	}
-	return (map_copy);
+	is_map_valid(data);
 }
