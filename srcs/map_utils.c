@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/20 14:37:10 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 13:12:22 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	get_colls(t_data *data)
 	int	i;
 	int	j;
 	int	count_c;
-	
+
 	i = 0;
 	count_c = 0;
 	while (data->map[i])

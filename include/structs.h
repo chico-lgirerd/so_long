@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:15:36 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/19 14:55:13 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 12:45:19 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_content
 typedef struct s_data
 {
 	char		**map;
+	char		**map_copy;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			height;
