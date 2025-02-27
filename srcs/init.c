@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:20:25 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/27 15:07:12 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,22 @@ void	init_player_pos(t_data *data)
 	}
 }
 
-void	init_mlx(t_data *data)
+void	init_window(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		ft_map_error(data, "Failed to get mlx_ptr");
 	data->win_ptr = mlx_new_window(data->mlx_ptr,
-			data->width * 64, data->height * 64, "seaulongue");
+			(data->width - 1) * 64, data->height * 64, "seaulongue");
 	if (!data->win_ptr)
 		ft_mlx_error(data, "Failed to get win_ptr");
+}
+
+void	init_mlx(t_data *data)
+{
+	init_window(data);
+	draw_map(data);
+	
 }
 
 void	init_data(t_data *data, char *map_path)

@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/02/26 21:29:39 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/02/27 11:27:17 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS    	= $(SRCS_DIR)map_checker_core.c \
 			  $(SRCS_DIR)init.c \
 			  $(SRCS_DIR)map_utils.c \
 			  $(SRCS_DIR)test.c \
-			  $(SRCS_DIR)map_checker_fill.c 
+			  $(SRCS_DIR)map_checker_fill.c \
+			  $(SRCS_DIR)draw.c
 
 ############################# DIRECTORIES ##############################
 
@@ -69,7 +70,7 @@ norm:
 	@norminette srcs | grep Error || true
 	@norminette include | grep Error || true
 	@norminette libft | grep Error || true 
-	
+
 -include $(DEPS)
 
 .PHONY: all clean fclean re norm

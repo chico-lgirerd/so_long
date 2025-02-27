@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:16:52 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:21:16 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/02/27 14:58:38 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@ typedef struct s_player
 
 typedef struct s_image
 {
-	int	width;
-	int	height;
+	void	*img_ptr;
+	// char	*addr;
+	// int		bits_per_pixel;
+	// int		line_length;
+	// int		endian;
+	// int	width;
+	// int	height;
 }	t_image;
 
 typedef struct s_content
@@ -73,5 +78,6 @@ int		get_exits(t_data *data);
 int		get_start(t_data *data);
 int		get_colls(t_data *data);
 void	is_map_valid(t_data *data);
+void	draw_map(t_data *data);
 
 #endif 
