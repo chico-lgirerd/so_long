@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:26:29 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/27 17:38:44 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 09:56:09 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ void	draw_wall(t_data *data, int x, int y)
 	int	width;
 	int	height;
 
-	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "img/wall.xpm", &width, &height);
+	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr,
+			"img/wall.xpm", &width, &height);
 	if (!data->img.img_ptr)
 		ft_mlx_error(data, "Failed to get image");
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr, x, y);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+		data->img.img_ptr, x, y);
 }
 
 void	draw_space(t_data *data, int x, int y)
@@ -29,10 +31,12 @@ void	draw_space(t_data *data, int x, int y)
 	int	width;
 	int	height;
 
-	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "img/empty.xpm", &width, &height);
+	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr,
+			"img/empty.xpm", &width, &height);
 	if (!data->img.img_ptr)
 		ft_mlx_error(data, "Failed to get image");
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr, x, y);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+		data->img.img_ptr, x, y);
 }
 
 void	draw_colls(t_data *data, int x, int y)
@@ -40,10 +44,12 @@ void	draw_colls(t_data *data, int x, int y)
 	int	width;
 	int	height;
 
-	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "img/jerry.xpm", &width, &height);
+	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr,
+			"img/jerry.xpm", &width, &height);
 	if (!data->img.img_ptr)
 		ft_mlx_error(data, "Failed to get image");
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr, x, y);	
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+		data->img.img_ptr, x, y);
 }
 
 void	draw_start_exit(t_data *data, int x, int y, char c)
@@ -53,17 +59,21 @@ void	draw_start_exit(t_data *data, int x, int y, char c)
 
 	if (c == 'P')
 	{
-		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "img/start.xpm", &width, &height);
+		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr,
+				"img/start.xpm", &width, &height);
 		if (!data->img.img_ptr)
 			ft_mlx_error(data, "Failed to get image");
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr, x, y);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->img.img_ptr, x, y);
 	}
 	else if (c == 'E')
 	{
-		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "img/exit8.xpm", &width, &height);
+		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr,
+				"img/exit8.xpm", &width, &height);
 		if (!data->img.img_ptr)
 			ft_mlx_error(data, "Failed to get image");
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr, x, y);	
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->img.img_ptr, x, y);
 	}
 }
 
