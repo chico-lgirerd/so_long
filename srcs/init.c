@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 11:16:47 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 13:26:41 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	init_data(t_data *data, char *map_path)
 	data->map = map_core(data, map_path);
 	data->mlx_ptr = NULL;
 	data->win_ptr = NULL;
+	data->player.colls = 0;
 	init_img_pointers(data);
 	data->height = get_height(data);
 	data->width = get_width(data, data->height);

@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:16:52 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 11:16:32 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 13:54:50 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_player
 	void	*up;
 	void	*down;
 	int		direction;
+	int		colls;
 }	t_player;
 
 typedef struct s_image
@@ -85,6 +86,8 @@ void	draw_map(t_data *data);
 void	load_images(t_data *data);
 void	clean_error(t_data *data, char *msg);
 void	init_img_pointers(t_data *data);
-
+void	free_images(t_data *data);
+void	clean_exit(t_data *data);
+void	draw_player(t_data *data, int dir);
 
 #endif 

@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/03 10:55:54 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/03 12:31:02 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ SRCS    	= $(SRCS_DIR)map_checker_core.c \
 			  $(SRCS_DIR)test.c \
 			  $(SRCS_DIR)map_checker_fill.c \
 			  $(SRCS_DIR)draw.c \
-			  $(SRCS_DIR)load.c
-#			  $(SRCS_DIR)move.c
+			  $(SRCS_DIR)load.c \
+			  $(SRCS_DIR)move.c
 
 ############################# DIRECTORIES ##############################
 

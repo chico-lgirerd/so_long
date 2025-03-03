@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:19:48 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 11:23:08 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 13:37:38 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	free_images(t_data *data)
 	if (data->player.right)
 		mlx_destroy_image(data->mlx_ptr, data->player.right);
 }
-
 
 void	load_player_images(t_data *data)
 {

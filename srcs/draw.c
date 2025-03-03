@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:26:29 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 10:37:53 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 13:03:25 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,4 @@ void	draw_map(t_data *data)
 		}
 		i++;
 	}
-	sleep(10);
 }
