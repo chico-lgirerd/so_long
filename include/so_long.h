@@ -6,12 +6,14 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:16:52 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 13:54:50 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 14:31:37 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+# define DestroyNotify 17
+# define DestroyListen 1L<<17
 
 # include <stdlib.h>
 # include <fcntl.h>
@@ -87,7 +89,9 @@ void	load_images(t_data *data);
 void	clean_error(t_data *data, char *msg);
 void	init_img_pointers(t_data *data);
 void	free_images(t_data *data);
-void	clean_exit(t_data *data);
+int		clean_exit(t_data *data);
 void	draw_player(t_data *data, int dir);
+int		key_hook(int keycode, t_data *data);
+void	init_player(t_data *data);
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 13:26:41 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 14:14:03 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	init_mlx(t_data *data)
 {
 	init_window(data);
 	load_images(data);
-	draw_map(data);
 }
 
 void	init_data(t_data *data, char *map_path)
