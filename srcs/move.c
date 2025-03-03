@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:06:15 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 09:51:49 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 10:09:17 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == 53 || keycode == 65307)
-		close_window(data);
+		ft_close(data);
 	else if (keycode == 13 || keycode == 119 || keycode == 65362) // w ou up
 		move_player(data, 0, -1);
 	else if (keycode == 1 || keycode == 115 || keycode == 65364) // s ou down

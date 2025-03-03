@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:16:52 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/27 14:58:38 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 11:16:32 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,22 @@
 
 typedef struct s_player
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	void	*left;
+	void	*right;
+	void	*up;
+	void	*down;
+	int		direction;
 }	t_player;
 
 typedef struct s_image
 {
-	void	*img_ptr;
-	// char	*addr;
-	// int		bits_per_pixel;
-	// int		line_length;
-	// int		endian;
-	// int	width;
-	// int	height;
+	void	*wall;
+	void	*empty;
+	void	*colls;
+	void	*exit;
+	void	*start;
 }	t_image;
 
 typedef struct s_content
@@ -55,9 +58,9 @@ typedef struct s_data
 	int			height;
 	int			width;
 	int			count;
-	t_player	pos;
+	t_player	player;
 	t_content	content;
-	t_image		img;
+	t_image		sprites;
 }	t_data;
 
 void	ft_error(char *msg);
@@ -79,5 +82,9 @@ int		get_start(t_data *data);
 int		get_colls(t_data *data);
 void	is_map_valid(t_data *data);
 void	draw_map(t_data *data);
+void	load_images(t_data *data);
+void	clean_error(t_data *data, char *msg);
+void	init_img_pointers(t_data *data);
+
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:36:30 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:21:29 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 11:11:56 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	check_reachable(t_data *data)
 {
 	data->content.found_c = 0;
 	data->content.found_e = 0;
-	flood_fill(data, data->pos.x, data->pos.y);
+	flood_fill(data, data->player.x, data->player.y);
 	return (data->content.found_c == data->content.count_c
 		&& data->content.found_e == 1);
 }

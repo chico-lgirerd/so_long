@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 09:52:17 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 11:16:47 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	init_player_pos(t_data *data)
 		{
 			if (data->map[i][j] == 'P')
 			{
-				data->pos.x = i;
-				data->pos.y = j;
+				data->player.x = i;
+				data->player.y = j;
 				return ;
 			}
 			j++;
@@ -71,12 +71,13 @@ void	init_window(t_data *data)
 	data->win_ptr = mlx_new_window(data->mlx_ptr,
 			(data->width - 1) * 64, data->height * 64, "seaulongue");
 	if (!data->win_ptr)
-		ft_mlx_error(data, "Failed to get win_ptr");
+		clean_error(data, "Failed to get win_ptr");
 }
 
 void	init_mlx(t_data *data)
 {
 	init_window(data);
+	load_images(data);
 	draw_map(data);
 }
 
@@ -85,6 +86,7 @@ void	init_data(t_data *data, char *map_path)
 	data->map = map_core(data, map_path);
 	data->mlx_ptr = NULL;
 	data->win_ptr = NULL;
+	init_img_pointers(data);
 	data->height = get_height(data);
 	data->width = get_width(data, data->height);
 	data->content.count_c = get_colls(data);
