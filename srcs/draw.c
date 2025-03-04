@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:26:29 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 16:31:31 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 17:31:42 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	draw_map(t_data *data)
 		}
 		y++;
 	}
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0x00FFFFFF, "Coucou");
 }
