@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:12:34 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 15:18:55 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 17:18:45 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	main(int ac, char **av)
 		mlx_key_hook(data->win_ptr, key_hook, data);
 		mlx_hook(data->win_ptr, DESTROYNOTIFY, 1L << 17, clean_exit, data);
 		mlx_loop(data->mlx_ptr);
-		clean_exit(data);
-		free(data);
 	}
 	else
 		free(data);

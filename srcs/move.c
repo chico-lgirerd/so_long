@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:06:15 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 16:47:08 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 17:18:41 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	clean_exit(t_data *data)
 		free(data->mlx_ptr);
 		data->mlx_ptr = NULL;
 	}
+	free(data);
+	exit(0);
 	return (0);
 }
 
@@ -58,13 +60,11 @@ int	move_player(t_data *data, int dx, int dy, int dir)
 		handle_colls(data, new_y, new_x);
 	data->player.height = new_y;
 	data->player.width = new_x;
-	// if (data->mlx_ptr && data->win_ptr)
-	// {
-	// 	draw_map(data);
-	// 	draw_player(data, dir);
-	// }
-	draw_map(data);
-	draw_player(data, dir);
+	if (data->mlx_ptr && data->win_ptr)
+	{
+		draw_map(data);
+		draw_player(data, dir);
+	}
 	return (1);
 }
 

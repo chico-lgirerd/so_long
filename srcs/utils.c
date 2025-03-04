@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:06:27 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:21:41 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 17:19:23 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_error(char *msg)
 void	ft_map_error(t_data *data, char *msg)
 {
 	free_map(data);
+	free(data);
 	ft_error(msg);
 }
 

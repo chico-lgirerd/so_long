@@ -6,12 +6,11 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 16:55:25 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 17:05:25 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "libft.h"
 #include "mlx.h"
 
 char	**init_map_copy(t_data *data)
