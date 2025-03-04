@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:06:15 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 13:34:44 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:47:08 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	clean_exit(t_data *data)
 	return (0);
 }
 
-void	handle_colls(t_data *data, int new_x, int new_y)
+void	handle_colls(t_data *data, int new_y, int new_x)
 {
 	data->player.colls++;
-	data->map[new_x][new_y] = '0';
+	data->map[new_y][new_x] = '0';
 }
 
 void	handle_exit(t_data *data)
@@ -41,23 +41,29 @@ void	handle_exit(t_data *data)
 		clean_exit(data);
 }
 
-int	move_player(t_data *data, int dy, int dx, int dir)
+int	move_player(t_data *data, int dx, int dy, int dir)
 {
 	int	new_x;
 	int	new_y;
 
-	new_x = data->player.x + dx;
-	new_y = data->player.y + dy;
-	if (new_x < 0 || new_y < 0 || new_x >= data->height || new_x >= data->width)
+	new_x = data->player.width + dx;
+	new_y = data->player.height + dy;
+	if (new_x < 0 || new_y < 0 || new_y >= data->height || new_x >= data->width)
 		return (0);
-	if (data->map[new_x][new_y] == '1')
+	if (data->map[new_y][new_x] == '1')
 		return (0);
-	else if (data->map[new_x][new_y] == 'E')
+	else if (data->map[new_y][new_x] == 'E')
 		handle_exit(data);
-	else if (data->map[new_x][new_y] == 'C')
-		handle_colls(data, new_x, new_y);
-	data->player.x = new_x;
-	data->player.y = new_y;
+	else if (data->map[new_y][new_x] == 'C')
+		handle_colls(data, new_y, new_x);
+	data->player.height = new_y;
+	data->player.width = new_x;
+	// if (data->mlx_ptr && data->win_ptr)
+	// {
+	// 	draw_map(data);
+	// 	draw_player(data, dir);
+	// }
+	draw_map(data);
 	draw_player(data, dir);
 	return (1);
 }
@@ -69,11 +75,10 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == 13 || keycode == 119 || keycode == 65362)
 		move_player(data, 0, -1, 1);
 	else if (keycode == 1 || keycode == 115 || keycode == 65364)
-		move_player(data, 0, 1, 2);
+		move_player(data, 0, 1, 3);
 	else if (keycode == 0 || keycode == 97 || keycode == 65361)
-		move_player(data, -1, 0, 3);
+		move_player(data, -1, 0, 4);
 	else if (keycode == 2 || keycode == 100 || keycode == 65363)
-		move_player(data, 1, 0, 4);
-	draw_map(data);
+		move_player(data, 1, 0, 2);
 	return (0);
 }

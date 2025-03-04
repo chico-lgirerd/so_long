@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:20:38 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:12:37 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,28 +101,28 @@ char	**map_core(t_data *data, char *map_path)
 
 void	check_walls(t_data *data)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	j = 0;
-	while (j < data->width - 1)
+	x = 0;
+	while (x < data->width - 1)
 	{
-		if (data->map[0][j] != '1')
+		if (data->map[0][x] != '1')
 			ft_map_error(data, "Incorrect walls : first line");
-		j++;
+		x++;
 	}
-	i = 0;
-	while (i < data->height - 1)
+	y = 0;
+	while (y < data->height - 1)
 	{
-		if (data->map[i][0] != '1' || data->map[i][data->width - 2] != '1')
+		if (data->map[y][0] != '1' || data->map[y][data->width - 2] != '1')
 			ft_map_error(data, "Incorrect walls : columns");
-		i++;
+		y++;
 	}
-	j = 0;
-	while (j < data->width - 1)
+	x = 0;
+	while (x < data->width - 1)
 	{
-		if (data->map[data->height - 1][j] != '1')
+		if (data->map[data->height - 1][x] != '1')
 			ft_map_error(data, "Incorrect walls : last line");
-		j++;
+		x++;
 	}
 }

@@ -6,60 +6,61 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 14:14:03 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:55:25 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "libft.h"
 #include "mlx.h"
 
 char	**init_map_copy(t_data *data)
 {
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 	char	**map_copy;
 
 	map_copy = malloc(sizeof(char *) * (data->height + 1));
 	if (!map_copy)
 		ft_map_error(data, "Failed to allocate memory : map_copy");
-	i = 0;
-	while (i < data->height)
+	y = 0;
+	while (y < data->height)
 	{
-		map_copy[i] = malloc(sizeof(char) * (data->width + 1));
-		if (!map_copy[i])
+		map_copy[y] = malloc(sizeof(char) * (data->width + 1));
+		if (!map_copy[y])
 			ft_map_copy_error(data, "Failed to allocate memory : map_copy[i]");
-		j = 0;
-		while (j < data->width - 1)
+		x = 0;
+		while (x < data->width - 1)
 		{
-			map_copy[i][j] = data->map[i][j];
-			j++;
+			map_copy[y][x] = data->map[y][x];
+			x++;
 		}
-		i++;
+		y++;
 	}
-	map_copy[i] = NULL;
+	map_copy[y] = NULL;
 	return (map_copy);
 }
 
 void	init_player_pos(t_data *data)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (i < data->height)
+	y = 0;
+	while (y < data->height)
 	{
-		j = 0;
-		while (j < data->width)
+		x = 0;
+		while (x < data->width)
 		{
-			if (data->map[i][j] == 'P')
+			if (data->map[y][x] == 'P')
 			{
-				data->player.x = i;
-				data->player.y = j;
+				data->player.width = x;
+				data->player.height = y;
 				return ;
 			}
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 }
 

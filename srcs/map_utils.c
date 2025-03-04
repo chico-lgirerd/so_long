@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/02/26 21:21:32 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:14:52 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 
 int	get_height(t_data *data)
 {
-	int	i;
+	int	y;
 
-	i = 0;
-	while (data->map[i])
-		i++;
-	return (i);
+	y = 0;
+	while (data->map[y])
+		y++;
+	return (y);
 }
 
 int	get_width(t_data *data, int height)
 {
 	size_t	len_1;
-	int		i;
+	int		y;
 
 	len_1 = ft_strlen(data->map[0]);
-	i = 1;
-	while (data->map[i] != NULL)
+	y = 1;
+	while (data->map[y] != NULL)
 	{
-		if (ft_strlen(data->map[i]) != len_1)
+		if (ft_strlen(data->map[y]) != len_1)
 			ft_map_error(data, "Variating widths");
-		i++;
+		y++;
 	}
 	if ((size_t)height >= len_1 - 1)
 		ft_map_error(data, "Map is not rectangular");
@@ -43,22 +43,22 @@ int	get_width(t_data *data, int height)
 
 int	get_exits(t_data *data)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 	int	count_e;
 
-	i = 0;
+	y = 0;
 	count_e = 0;
-	while (data->map[i])
+	while (data->map[y])
 	{
-		j = 0;
-		while (data->map[i][j] != '\n')
+		x = 0;
+		while (data->map[y][x] != '\n')
 		{
-			if (data->map[i][j] == 'E')
+			if (data->map[y][x] == 'E')
 				count_e++;
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	if (count_e == 0 || count_e > 1)
 		ft_map_error(data, "Incorrect exit(s)");
@@ -67,22 +67,22 @@ int	get_exits(t_data *data)
 
 int	get_start(t_data *data)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 	int	count_p;
 
-	i = 0;
+	y = 0;
 	count_p = 0;
-	while (data->map[i])
+	while (data->map[y])
 	{
-		j = 0;
-		while (data->map[i][j] != '\n')
+		x = 0;
+		while (data->map[y][x] != '\n')
 		{
-			if (data->map[i][j] == 'P')
+			if (data->map[y][x] == 'P')
 				count_p++;
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	if (count_p == 0 || count_p > 1)
 		ft_map_error(data, "Incorrect starting point(s)");
@@ -91,22 +91,22 @@ int	get_start(t_data *data)
 
 int	get_colls(t_data *data)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 	int	count_c;
 
-	i = 0;
+	y = 0;
 	count_c = 0;
-	while (data->map[i])
+	while (data->map[y])
 	{
-		j = 0;
-		while (data->map[i][j] != '\n')
+		x = 0;
+		while (data->map[y][x] != '\n')
 		{
-			if (data->map[i][j] == 'C')
+			if (data->map[y][x] == 'C')
 				count_c++;
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	if (count_c == 0)
 		ft_map_error(data, "Too few collectibles");
