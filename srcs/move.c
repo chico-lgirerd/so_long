@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:06:15 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 14:31:22 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 13:34:44 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 
 int	clean_exit(t_data *data)
 {
+	if (data->map)
+		free_map(data);
 	if (data->win_ptr && data->mlx_ptr)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	if (data->mlx_ptr)
-		free_images(data);
-	if (data->mlx_ptr)
 	{
+		free_images(data);
 		mlx_destroy_display(data->mlx_ptr);
 		free(data->mlx_ptr);
+		data->mlx_ptr = NULL;
 	}
 	return (0);
 }

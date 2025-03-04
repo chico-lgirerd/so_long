@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:12:34 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/03 14:30:31 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 13:30:14 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	main(int ac, char **av)
 		draw_map(data);
 		init_player(data);
 		mlx_key_hook(data->win_ptr, key_hook, data);
-		mlx_hook(data->win_ptr, DestroyNotify, DestroyListen, clean_exit,
+		mlx_hook(data->win_ptr, DestroyNotify, 1L<<17, clean_exit,
 				data);
 		mlx_loop(data->mlx_ptr);
 		clean_exit(data);
-		free_map(data);
+		free(data);
 	}
 	else
 		free(data);
