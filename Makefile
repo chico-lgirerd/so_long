@@ -6,24 +6,26 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/05 12:00:51 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/05 17:05:48 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    	= so_long
-CC      	= cc
-CFLAGS  	= -Wall -Wextra -Werror
-LIBFLAGS 	= -lm
-MLXFLAGS 	= -I/usr/include -Imlx
-LINKFLAGS 	= -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
-LIBFT		= ./libft/libft.a
-INC			= -I$(LIBFT_DIR) -I$(HDR_DIR) -I$(MLX_DIR)
-HDR			= so_long.h
-HDR_DIR		= include
-LIBFT_DIR	= libft/include
-LIBFT_HDR	= libft.h
-MLX_DIR		= mlx
-MLX_HDR		= mlx.h
+NAME    		= so_long
+CC      		= cc
+CFLAGS  		= -Wall -Wextra -Werror
+LIBFLAGS 		= -lm
+MLXFLAGS 		= -I/usr/include -Imlx
+LINKFLAGS 		= -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+LIBFT			= ./libft/libft.a
+INC				= -I$(LIBFT_HDR_DIR) -I$(HDR_DIR) -I$(MLX_DIR)
+HDR				= so_long.h
+HDR_DIR			= include
+LIBFT_HDR_DIR	= libft/include
+LIBFT_SRCS 	   := $(shell find libft/srcs -name "*.c")
+LIBFT_OBJS	   := $(LIBFT_SRCS:.c=.o)
+LIBFT_HDR		= libft.h
+MLX_DIR			= mlx
+MLX_HDR			= mlx.h
 
 ############################# SOURCES #############################
 
@@ -49,7 +51,7 @@ DEPS := $(OBJS:.o=.d)
 
 all:$(LIBFT) $(NAME)
 
-$(LIBFT): $(wildcard libft/srcs/**/*.c) $(LIBFT_DIR)/$(LIBFT_HDR)
+$(LIBFT): $(LIBFT_OBJS) $(LIBFT_HDR_DIR)/$(LIBFT_HDR)
 	make -C ./libft
 
 $(NAME): $(OBJS)
