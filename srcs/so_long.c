@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:12:34 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 17:18:45 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/05 16:01:28 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 
 	data = malloc(sizeof(t_data));
 	if (!data)
-		ft_error("Failed to allocate : data");
+		ft_error(data, "Failed to allocate : data");
 	if (ac == 2)
 	{
 		init_data(data, av[1]);

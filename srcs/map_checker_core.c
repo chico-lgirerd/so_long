@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 16:12:37 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/05 16:25:26 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	**get_map(t_data *data, int fd, int lines)
 
 	map = malloc(sizeof(char *) * (lines + 1));
 	if (!map)
-		ft_error("Failed to allocate memory : map");
+		ft_error(data, "Failed to allocate memory : map");
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
@@ -69,7 +69,7 @@ char	**get_map(t_data *data, int fd, int lines)
 	{
 		map[i] = malloc(ft_strlen(line) + 1);
 		if (!map[i])
-			ft_gnl_error(data, line, "Failed to allocate memory : map");
+			ft_gnl_error(data, map, line, "Failed to allocate memory : map");
 		ft_strlcpy(map[i], line, ft_strlen(line) + 1);
 		free(line);
 		i++;
@@ -86,14 +86,14 @@ char	**map_core(t_data *data, char *map_path)
 	char	**map;
 
 	if (name_checker(map_path))
-		ft_error("Incorrect map format. Usage : ./so_long map.ber");
+		ft_error(data, "Incorrect map format. Usage : ./so_long map.ber");
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		ft_error("Error while opening file");
+		ft_error(data, "Error while opening file");
 	i = line_count(fd);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		ft_error("Error while opening file");
+		ft_error(data, "Error while opening file");
 	map = get_map(data, fd, i);
 	close(fd);
 	return (map);

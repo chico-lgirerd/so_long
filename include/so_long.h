@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:16:52 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/05 11:28:28 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/05 16:25:09 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ typedef struct s_data
 	t_image		sprites;
 }	t_data;
 
-void	ft_error(char *msg);
+void	ft_error(t_data *data, char *msg);
 void	ft_map_error(t_data *data, char *msg);
-void	ft_gnl_error(t_data *data, char *line, char *msg);
+void	ft_gnl_error(t_data *data, char **map, char *line, char *msg);
 void	ft_map_copy_error(t_data *data, char *msg);
 void	free_map(t_data *data);
 void	free_map_copy(t_data *data);
