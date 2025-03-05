@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:06:15 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/05 11:37:14 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/05 12:00:23 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	move_player(t_data *data, int dx, int dy, int dir)
 	int			new_x;
 	int			new_y;
 	static int	moves = 1;
-	
+
 	new_x = data->player.width + dx;
 	new_y = data->player.height + dy;
 	if (new_x < 0 || new_y < 0 || new_y >= data->height || new_x >= data->width)

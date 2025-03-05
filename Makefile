@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/05 11:27:48 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/05 12:00:51 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRCS    	= $(SRCS_DIR)map_checker_core.c \
 			  $(SRCS_DIR)draw.c \
 			  $(SRCS_DIR)load.c \
 			  $(SRCS_DIR)move.c \
-			  $(SRCS_DIR)player.c \
+			  $(SRCS_DIR)player.c
 
 ############################# DIRECTORIES ##############################
 
@@ -49,13 +49,13 @@ DEPS := $(OBJS:.o=.d)
 
 all:$(LIBFT) $(NAME)
 
-$(LIBFT):
+$(LIBFT): $(wildcard libft/srcs/**/*.c) $(LIBFT_DIR)/$(LIBFT_HDR)
 	make -C ./libft
 
-$(NAME): $(OBJS) Makefile
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(LINKFLAGS)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(addprefix $(HDR_DIR)/, $(HDR)) $(LIBFT_DIR)/$(LIBFT_HDR) $(MLX_DIR)/$(MLX_HDR)
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(addprefix $(HDR_DIR)/, $(HDR)) $(MLX_DIR)/$(MLX_HDR)
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INC) -MMD -c $< -o $@ $(MLXFLAGS)
 
