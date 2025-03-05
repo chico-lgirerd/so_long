@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/05 17:14:20 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/05 17:14:44 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,6 @@ INC				= -I$(LIBFT_HDR_DIR) -I$(HDR_DIR) -I$(MLX_DIR)
 HDR				= so_long.h
 HDR_DIR			= include
 LIBFT_HDR_DIR	= libft/include
-LIBFT_SRCS 	   := $(shell find libft/srcs -name "*.c")
-LIBFT_OBJS	   := $(LIBFT_SRCS:.c=.o)
 LIBFT_HDR		= libft.h
 MLX_DIR			= mlx
 MLX_HDR			= mlx.h
