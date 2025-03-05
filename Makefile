@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/05 17:05:48 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/05 17:14:20 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ DEPS := $(OBJS:.o=.d)
 
 all:$(LIBFT) $(NAME)
 
-$(LIBFT): $(LIBFT_OBJS) $(LIBFT_HDR_DIR)/$(LIBFT_HDR)
+$(LIBFT): $(LIBFT_HDR_DIR)/$(LIBFT_HDR)
 	make -C ./libft
 
 $(NAME): $(OBJS)
