@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 11:26:29 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/06 17:14:21 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 17:22:04 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	draw_map(t_data *data)
 				|| data->map[y][x] == CHAR_EXIT)
 				draw_start_exit(data, y * TILE_SIZE,
 					x * TILE_SIZE, data->map[y][x]);
-			else
+			else if (data->map[y][x] != '\n')
 				ft_error(data, "Unknown characters in map");
 			x++;
 		}
