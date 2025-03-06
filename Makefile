@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/05 17:14:44 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/06 17:07:42 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,11 @@ re: fclean all
 norm:
 	@norminette srcs | grep Error || true
 	@norminette include | grep Error || true
-	@norminette libft | grep Error || true 
+	@norminette libft | grep Error || true
+
+leaks:
+	bash test_leaks.sh
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re norm leaks

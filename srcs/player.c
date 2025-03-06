@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:50:55 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 17:05:04 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 16:57:30 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 
 void	draw_player(t_data *data, int dir)
 {
-	if (dir == 1)
+	if (data->moves == 0)
+		return ;
+	if (dir == FRAME_UP)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player.up, data->player.width * 64,
-			data->player.height * 64);
-	else if (dir == 2)
+			data->player.up, data->player.width * TILE_SIZE,
+			data->player.height * TILE_SIZE);
+	else if (dir == FRAME_RIGHT)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player.right, data->player.width * 64,
-			data->player.height * 64);
-	else if (dir == 3)
+			data->player.right, data->player.width * TILE_SIZE,
+			data->player.height * TILE_SIZE);
+	else if (dir == FRAME_DOWN)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player.down, data->player.width * 64,
-			data->player.height * 64);
-	else if (dir == 4)
+			data->player.down, data->player.width * TILE_SIZE,
+			data->player.height * TILE_SIZE);
+	else if (dir == FRAME_LEFT)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player.left, data->player.width * 64,
-			data->player.height * 64);
+			data->player.left, data->player.width * TILE_SIZE,
+			data->player.height * TILE_SIZE);
 }
 
 void	init_player(t_data *data)
@@ -44,7 +46,7 @@ void	init_player(t_data *data)
 		x = 0;
 		while (x < data->width)
 		{
-			if (data->map[y][x] == 'P')
+			if (data->map[y][x] == CHAR_PLAYER)
 			{
 				data->player.height = y;
 				data->player.width = x;
@@ -53,5 +55,4 @@ void	init_player(t_data *data)
 		}
 		y++;
 	}
-	draw_player(data, 3);
 }

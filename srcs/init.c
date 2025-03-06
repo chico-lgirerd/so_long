@@ -6,11 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:16:54 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/05 15:55:25 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 16:54:26 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "libft.h"
 #include "mlx.h"
 
 char	**init_map_copy(t_data *data)
@@ -21,13 +22,13 @@ char	**init_map_copy(t_data *data)
 
 	map_copy = malloc(sizeof(char *) * (data->height + 1));
 	if (!map_copy)
-		ft_map_error(data, "Failed to allocate memory : map_copy");
+		ft_error(data, "Failed to allocate memory : map_copy");
 	y = 0;
 	while (y < data->height)
 	{
 		map_copy[y] = malloc(sizeof(char) * (data->width + 1));
 		if (!map_copy[y])
-			ft_map_copy_error(data, "Failed to allocate memory : map_copy[y]");
+			ft_error(data, "Failed to allocate memory : map_copy[y]");
 		x = 0;
 		while (x < data->width - 1)
 		{
@@ -51,7 +52,7 @@ void	init_player_pos(t_data *data)
 		x = 0;
 		while (x < data->width)
 		{
-			if (data->map[y][x] == 'P')
+			if (data->map[y][x] == CHAR_PLAYER)
 			{
 				data->player.width = x;
 				data->player.height = y;
@@ -67,11 +68,12 @@ void	init_window(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
-		ft_map_error(data, "Failed to get mlx_ptr");
+		ft_error(data, "Failed to get mlx_ptr");
 	data->win_ptr = mlx_new_window(data->mlx_ptr,
-			(data->width - 1) * 64, data->height * 64, "seaulongue");
+			(data->width - 1) * TILE_SIZE,
+			data->height * TILE_SIZE, "seaulongue");
 	if (!data->win_ptr)
-		clean_error(data, "Failed to get win_ptr");
+		ft_error(data, "Failed to get win_ptr");
 }
 
 void	init_mlx(t_data *data)
@@ -82,16 +84,14 @@ void	init_mlx(t_data *data)
 
 void	init_data(t_data *data, char *map_path)
 {
+	ft_memset(data, 0, sizeof(t_data));
 	data->map = map_core(data, map_path);
-	data->mlx_ptr = NULL;
-	data->win_ptr = NULL;
-	data->player.colls = 0;
-	init_img_pointers(data);
 	data->height = get_height(data);
 	data->width = get_width(data, data->height);
 	data->content.count_c = get_colls(data);
 	data->content.count_e = get_exits(data);
 	data->content.count_p = get_start(data);
+	check_walls(data);
 	data->map_copy = init_map_copy(data);
 	is_map_valid(data);
 	init_mlx(data);

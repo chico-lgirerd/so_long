@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/05 16:25:26 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 17:17:07 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,14 @@ char	**get_map(t_data *data, int fd, int lines)
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
-		exit(1);
+		ft_error(data, "Failed get_next_line");
 	while (line != NULL)
 	{
-		map[i] = malloc(ft_strlen(line) + 1);
-		if (!map[i])
-			ft_gnl_error(data, map, line, "Failed to allocate memory : map");
-		ft_strlcpy(map[i], line, ft_strlen(line) + 1);
-		free(line);
+		map[i] = line;
 		i++;
 		line = get_next_line(fd);
 	}
+	free(line);
 	map[i] = NULL;
 	return (map);
 }
@@ -107,22 +104,23 @@ void	check_walls(t_data *data)
 	x = 0;
 	while (x < data->width - 1)
 	{
-		if (data->map[0][x] != '1')
-			ft_map_error(data, "Incorrect walls : first line");
+		if (data->map[0][x] != CHAR_WALL)
+			ft_error(data, "Incorrect walls : first line");
 		x++;
 	}
 	y = 0;
 	while (y < data->height - 1)
 	{
-		if (data->map[y][0] != '1' || data->map[y][data->width - 2] != '1')
-			ft_map_error(data, "Incorrect walls : columns");
+		if (data->map[y][0] != CHAR_WALL
+			|| data->map[y][data->width - 2] != CHAR_WALL)
+			ft_error(data, "Incorrect walls : columns");
 		y++;
 	}
 	x = 0;
 	while (x < data->width - 1)
 	{
-		if (data->map[data->height - 1][x] != '1')
-			ft_map_error(data, "Incorrect walls : last line");
+		if (data->map[data->height - 1][x] != CHAR_WALL)
+			ft_error(data, "Incorrect walls : last line");
 		x++;
 	}
 }

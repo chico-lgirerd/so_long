@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:36:30 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/05 16:07:05 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 16:28:35 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,22 @@ void	free_map_copy(t_data *data)
 		y++;
 	}
 	free(data->map_copy);
+	data->map_copy = NULL;
 }
 
 void	flood_fill(t_data *data, int x, int y)
 {
 	if (x < 0 || y < 0 || y >= data->height
-		|| x >= data->width || data->map_copy[y][x] == '1'
+		|| x >= data->width || data->map_copy[y][x] == CHAR_WALL
 		|| data->map_copy[y][x] == 'X')
 		return ;
-	if (data->map_copy[y][x] == 'C' || data->map_copy[y][x] == 'E')
+	if (data->map_copy[y][x] == CHAR_COLL || data->map_copy[y][x] == CHAR_EXIT)
 	{
-		if (data->map_copy[y][x] == 'C')
+		if (data->map_copy[y][x] == CHAR_COLL)
 			data->content.found_c++;
-		else if (data->map_copy[y][x] == 'E')
+		else if (data->map_copy[y][x] == CHAR_EXIT)
 			data->content.found_e++;
-		data->map_copy[y][x] = '0';
+		data->map_copy[y][x] = CHAR_EMPTY;
 	}
 	data->map_copy[y][x] = 'X';
 	flood_fill(data, y - 1, x);
@@ -73,6 +74,6 @@ void	is_map_valid(t_data *data)
 {
 	init_player_pos(data);
 	if (!check_reachable(data))
-		ft_map_copy_error(data, "All map elements cannot be reached");
+		ft_error(data, "All map elements cannot be reached");
 	free_map_copy(data);
 }

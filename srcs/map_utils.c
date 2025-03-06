@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:43:58 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/04 16:14:52 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 16:28:46 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	get_width(t_data *data, int height)
 	while (data->map[y] != NULL)
 	{
 		if (ft_strlen(data->map[y]) != len_1)
-			ft_map_error(data, "Variating widths");
+			ft_error(data, "Variating widths");
 		y++;
 	}
 	if ((size_t)height >= len_1 - 1)
-		ft_map_error(data, "Map is not rectangular");
+		ft_error(data, "Map is not rectangular");
 	return (len_1);
 }
 
@@ -54,14 +54,14 @@ int	get_exits(t_data *data)
 		x = 0;
 		while (data->map[y][x] != '\n')
 		{
-			if (data->map[y][x] == 'E')
+			if (data->map[y][x] == CHAR_EXIT)
 				count_e++;
 			x++;
 		}
 		y++;
 	}
 	if (count_e == 0 || count_e > 1)
-		ft_map_error(data, "Incorrect exit(s)");
+		ft_error(data, "Incorrect exit(s)");
 	return (count_e);
 }
 
@@ -78,14 +78,14 @@ int	get_start(t_data *data)
 		x = 0;
 		while (data->map[y][x] != '\n')
 		{
-			if (data->map[y][x] == 'P')
+			if (data->map[y][x] == CHAR_PLAYER)
 				count_p++;
 			x++;
 		}
 		y++;
 	}
 	if (count_p == 0 || count_p > 1)
-		ft_map_error(data, "Incorrect starting point(s)");
+		ft_error(data, "Incorrect starting point(s)");
 	return (count_p);
 }
 
@@ -102,13 +102,13 @@ int	get_colls(t_data *data)
 		x = 0;
 		while (data->map[y][x] != '\n')
 		{
-			if (data->map[y][x] == 'C')
+			if (data->map[y][x] == CHAR_COLL)
 				count_c++;
 			x++;
 		}
 		y++;
 	}
 	if (count_c == 0)
-		ft_map_error(data, "Too few collectibles");
+		ft_error(data, "Too few collectibles");
 	return (count_c);
 }
