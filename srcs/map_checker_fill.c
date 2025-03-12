@@ -6,7 +6,7 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:36:30 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/06 17:43:19 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/12 15:01:52 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,17 @@ void	flood_fill(t_data *data, int x, int y)
 		data->map_copy[y][x] = CHAR_EMPTY;
 	}
 	data->map_copy[y][x] = 'X';
-	flood_fill(data, y - 1, x);
-	flood_fill(data, y + 1, x);
-	flood_fill(data, y, x - 1);
-	flood_fill(data, y, x + 1);
+	flood_fill(data, x - 1, y);
+	flood_fill(data, x + 1, y);
+	flood_fill(data, x, y - 1);
+	flood_fill(data, x, y + 1);
 }
-
-#include "libft.h"
 
 int	check_reachable(t_data *data)
 {
 	data->content.found_c = 0;
 	data->content.found_e = 0;
 	flood_fill(data, data->player.width, data->player.height);
-	ft_printf("Found %d colls and counted %d colls\n", data->content.found_c, data->content.count_c);
 	return (data->content.found_c == data->content.count_c
 		&& data->content.found_e == 1);
 }
