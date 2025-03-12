@@ -6,7 +6,7 @@
 #    By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/19 16:02:03 by lgirerd           #+#    #+#              #
-#    Updated: 2025/03/12 14:54:22 by lgirerd          ###   ########lyon.fr    #
+#    Updated: 2025/03/12 17:29:09 by lgirerd          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ DEPS := $(OBJS:.o=.d)
 
 ############################# RULES ##############################
 
-all:$(LIBFT) $(NAME)
+all: $(LIBFT) $(NAME)
 
 $(LIBFT): force $(LIBFT_HDR_DIR)/$(LIBFT_HDR)
 	make -C ./libft
@@ -75,9 +75,6 @@ norm:
 	@norminette include | grep Error || true
 	@norminette libft | grep Error || true
 
-leaks:
-	bash test_leaks.sh
-
 -include $(DEPS)
 
-.PHONY: all clean fclean re norm leaks
+.PHONY: all clean fclean re norm
