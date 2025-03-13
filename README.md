@@ -1,10 +1,10 @@
 # so_long
 
-A 2D game built with MiniLibX.
+A 2D top-down game built in C with help of the MiniLibX.
 
 ## 🛠️ Compilation
 
-Use `make` to compile the project and MiniLibX.  
+Use `make` to compile the project and configure the MiniLibX.  
 
 > **MiniLibX Source:** [42 Paris MiniLibX (Linux)](https://github.com/42paris/minilibx-linux.git)
 
