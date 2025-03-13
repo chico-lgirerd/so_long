@@ -1,13 +1,56 @@
-Use make to compile the project and the minilibx (source : https://github.com/42paris/minilibx-linux.git)
+# so_long
 
-Usage : ./so_long map.ber
+A 2D game built with MiniLibX.
 
-The map has to be rectangular, contain at least 1 starting point, 1 exit, and 1 collectibles.
-The map has to be enclosed by walls ('1'), an empty space ('0'), collectibles are 'C', exit is 'E', and starting point is 'P'.
+## 🛠️ Compilation
 
-The player has 4 different frames representing its direction. All the textures are .xpm files
+Use `make` to compile the project and MiniLibX.  
 
-I drew the collectibles, the starting position and the exit, the rest is from :
-Water (walls) : https://ninjikin.itch.io/water
-Ground : https://opengameart.org/content/tileable-brick-ground-textures-set-2
-Car : https://minzinn.itch.io/pixelvehicles
+> **MiniLibX Source:** [42 Paris MiniLibX (Linux)](https://github.com/42paris/minilibx-linux.git)
+
+## 🎮 Usage
+
+Run the game with:  
+
+```sh
+./so_long map.ber
+```
+
+## 🗺️ Map Requirements
+
+The map file (`.ber`) must follow these rules:  
+
+- **Rectangular shape**  
+- Contains at least:
+  - 1 **starting point** (`P`)
+  - 1 **exit** (`E`)
+  - 1 **collectible** (`C`)
+- Enclosed by **walls** (`1`)  
+- **Empty spaces** are represented by (`0`)  
+
+### Example:
+```
+111111
+1P0C01
+101E11
+111111
+```
+
+## 🎨 Textures & Sprites
+
+- **Player:** 4 directional frames  
+- **Format:** All textures are `.xpm` files  
+
+### 🔹 Assets Used:
+
+| Element          | Source |
+|-----------------|--------|
+| **Water (Walls)** | [Ninjikin](https://ninjikin.itch.io/water) |
+| **Ground** | [OpenGameArt](https://opengameart.org/content/tileable-brick-ground-textures-set-2) |
+| **Car (Player)** | [Minzinn](https://minzinn.itch.io/pixelvehicles) |
+| **Collectibles, Start, Exit** | *Hand-drawn* 🎨 |
+
+---
+
+Enjoy the game! 🚗💨  
+```
