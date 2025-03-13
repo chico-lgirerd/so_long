@@ -52,5 +52,9 @@ The map file (`.ber`) must follow these rules:
 
 ---
 
-Enjoy the game! 🚗💨  
-```
+### About
+This is a project from 42 Common Core
+
+I used the flood_fill algorithm to check the map
+
+Enjoy the game! 🚗💨 
