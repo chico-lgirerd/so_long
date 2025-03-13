@@ -6,14 +6,12 @@
 /*   By: lgirerd <lgirerd@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:17:43 by lgirerd           #+#    #+#             */
-/*   Updated: 2025/03/06 17:17:07 by lgirerd          ###   ########lyon.fr   */
+/*   Updated: 2025/03/13 15:09:39 by lgirerd          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "so_long.h"
-
-#define BUF_SIZE 65536
 
 int	name_checker(char *str)
 {
@@ -64,7 +62,10 @@ char	**get_map(t_data *data, int fd, int lines)
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
+	{
+		free(map);
 		ft_error(data, "Failed get_next_line");
+	}
 	while (line != NULL)
 	{
 		map[i] = line;
